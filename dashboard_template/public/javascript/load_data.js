@@ -131,6 +131,94 @@ let cargarOpenMeteo2 = () => {
         .catch(console.error);
 
 }
+let parseXML = (responseText) => {
+
+    // Parsing XML
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(responseText, "application/xml");
+
+    // Referencia al elemento `#forecastbody` del documento HTML
+
+    let forecastElement = document.querySelector("#forecastbody")
+    forecastElement.innerHTML = ''
+
+    // Procesamiento de los elementos con etiqueta `<time>` del objeto xml
+    let timeArr = xml.querySelectorAll("time")
+
+    timeArr.forEach(time => {
+
+        let from = time.getAttribute("from").replace("T", " ")
+
+        let humidity = time.querySelector("humidity").getAttribute("value")
+        let windSpeed = time.querySelector("windSpeed").getAttribute("mps")
+        let precipitation = time.querySelector("precipitation").getAttribute("probability")
+        let pressure = time.querySelector("pressure").getAttribute("value")
+        let cloud = time.querySelector("clouds").getAttribute("all")
+
+        let template = `
+            <tr>
+                <td>${from}</td>
+                <td>${humidity}</td>
+                <td>${windSpeed}</td>
+                <td>${precipitation}</td>
+                <td>${pressure}</td>
+                <td>${cloud}</td>
+            </tr>
+        `
+
+        //Renderizando la plantilla en el elemento HTML
+        forecastElement.innerHTML += template;
+    })
+
+}
+
+// Callback async
+let selectListener = async (event) => {
+
+    let selectedCity = event.target.value
+
+    //Lea la entrada de almacenamiento local
+    let cityStorage = localStorage.getItem(selectedCity);
+
+    if (cityStorage == null) {
+
+
+        try {
+
+            //API key
+            let APIkey = '3cd5a7ee8564cb6a66f6d4446f8b465b'
+            let url = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&mode=xml&appid=${APIkey}`
+
+            let response = await fetch(url)
+            let responseText = await response.text()
+
+            await parseXML(responseText)
+            // Guarde la entrada de almacenamiento local
+            await localStorage.setItem(selectedCity, responseText)
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    } else {
+        // Procese un valor previo
+        parseXML(cityStorage)
+    }
+
+
+
+}
+
+let loadForecastByCity = () => {
+
+    //Handling event
+    let selectElement = document.querySelector("select")
+    selectElement.addEventListener("change", selectListener)
+
+}
+
+loadForecastByCity()
 
 cargarPrecipitacion()
 cargarFechaActual()
