@@ -70,7 +70,7 @@ let cargarOpenMeteo = () => {
           labels: labels,
           datasets: [
             {
-              label: 'Temperature [2m]',
+              label: 'Temperatura [2m]',
               data: data,
             }
           ]
@@ -171,20 +171,79 @@ let loadForecastByCity = () => {
 }
 
 let loadExternalTable = async () => {
-  console.log("Gestion de riesgo");
+  //Requerimiento asíncrono
+  let url = "https://www.gestionderiesgos.gob.ec/monitoreo-de-inundaciones/";
 
-  let proxy = 'https://cors-anywhere.herokuapp.com/'
-  let url = proxy + 'https://www.gestionderiesgos.gob.ec/monitoreo-de-inundaciones/'
-  let response = await fetch(url);
-  let responseText = await response.text()
-  const parser = await new DOMParser();
-  const xml = await parser.parseFromString(responseText, "text/html");
+  //cors proxy
+  let proxyURL = "https://cors-anywhere.herokuapp.com/";
+  let endpoint = proxyURL + url;
 
-  let table = await xml.querySelector("#postContent table")
+  let response = await fetch(endpoint);
+  let responseText = await response.text();
 
-  document.getElementById("monitoreo").innerHTML = table.outerHTML
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(responseText, "text/html");
 
+  console.log("que mirah bobo" + xml);
+
+  let elementoXML = xml.querySelector("#postcontent table");
+  let elementoDOM = document.getElementById("monitoreo");
+
+  elementoDOM.innerHTML = elementoXML.outerHTML;
 }
+
+let loadInocar = () => {
+  let URL_proxy = 'https://cors-anywhere.herokuapp.com/';
+  let URL = URL_proxy + 'https://www.inocar.mil.ec/mareas/consultan.php';
+  fetch(URL)
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(data, 'text/html');
+      let contenedorHTML = document.getElementById('table-container');
+      
+      let rowElements = xmlDoc.getElementsByClassName('row');
+      let filteredRows = [rowElements[0], rowElements[1]];  // Filtrar los primeros dos elementos row
+      
+      let filteredHTML = Array.from(filteredRows)
+        .map(row => row.outerHTML)
+        .join('');
+
+      contenedorHTML.innerHTML = filteredHTML;
+    })
+    .catch(console.error);
+};
+
+  (
+    function () {
+       
+
+        let meteo = localStorage.getItem('meteo');
+
+        if(meteo==null){
+          let URL = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m";
+
+          fetch( URL )
+          .then(response => response.json())
+          .then(data => {
+           
+            load(data)
+
+            localStorage.setItem("meteo", JSON.stringify(data))
+          })
+          .catch(console.error);
+
+
+        }else{
+
+          load(JSON.parse(meteo))
+          
+        }
+
+        loadInocar();
+
+    }
+  )();
 
 cargarOpenMeteo()
 loadForecastByCity()

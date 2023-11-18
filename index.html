@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>Weather Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Weather Dashboard </a>
+        <a class="navbar-brand ps-3" href="index.html">Weather Dashboard</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i
                 class="fas fa-bars"></i></button>
@@ -61,7 +61,7 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Gráficos
+                            Graphics
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" data-bs-parent="#sidenavAccordion">
@@ -134,9 +134,6 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Información acerca del clima</li>
                     </ol>
-
-
-
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
@@ -180,23 +177,6 @@
                         </div>
 
                     </div>
-                    <!-- Gráficos -->
-                    <section class="p-4 text-right bg-light">
-                        <h4 id="graficos" class="mb-3">
-                            Gráficos
-                        </h4>
-                        <div class="container">
-                            <div class="row d-flex justify-content-center row-cols-1 row-cols-md-1 g-4 mt-2">
-                                <div class="col">
-                                    <canvas id="plot1"></canvas>
-                                </div>
-                                <div class="col">
-                                    <canvas id="plot2"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Gráficos -->
 
                     <!-- GRAFICO MOSTRADO CON CHART.JS-->
                     <div>
@@ -217,7 +197,7 @@
                             data: {
                                 labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
                                 datasets: [{
-                                    label: '# of Votes',
+                                    label: '% de precipitación',
                                     data: [12, 19, 3, 5, 2, 3, 5],
                                     borderWidth: 1
                                 }]
@@ -285,6 +265,12 @@
                         <h4 class="mb-3">
                             Mapa de monitoreo de amenaza de inundaciones bajo pronóstico de precipitaciones
                         </h4>
+                        Si experimentas algún problema con la visualización de la tabla
+                        debido a restricciones CORS, te ofrecemos una solución fácil.
+                        Haz clic en el siguiente enlace para solicitar acceso a nuestro
+                        proxy demo de CORS:
+                        <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">Solicitar Acceso al
+                            Proxy</a>
                         <div class="container">
                             <div class="row row-cols-1 row-cols-md-1 g-3 mt-2">
                                 <div class="col">
@@ -298,6 +284,17 @@
                         </div>
                     </section>
                     <!-- Tabla de mareas -->
+                    <!--TABLA INOCAR-->
+                    <h4>Tabla de Mareas - Puertos del Ecuador</h4>
+                    Si experimentas algún problema con la visualización de la tabla
+                    debido a restricciones CORS, te ofrecemos una solución fácil.
+                    Haz clic en el siguiente enlace para solicitar acceso a nuestro
+                    proxy demo de CORS:
+                    <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">Solicitar Acceso al
+                        Proxy</a>
+                    <div id="table-container">
+                        <!-- Aquí se mostrará el resultado de la petición asincrónica -->
+                    </div>
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
