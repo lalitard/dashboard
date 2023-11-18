@@ -16,7 +16,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand ps-3" href="index.html">Weather Dashboard </a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i
                 class="fas fa-bars"></i></button>
@@ -35,12 +35,12 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#!">Configuración</a></li>
+                    <li><a class="dropdown-item" href="#!">Actividad</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="#!">Cerrar Sesión</a></li>
                 </ul>
             </li>
         </ul>
@@ -57,11 +57,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <div class="sb-sidenav-menu-heading">Interface</div>
+                        <div class="sb-sidenav-menu-heading">Interfaz</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Layouts
+                            Gráficos
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" data-bs-parent="#sidenavAccordion">
@@ -73,7 +73,7 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
                             aria-expanded="false" aria-controls="collapsePages">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Pages
+                            Páginas Anexas
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapsePages" data-bs-parent="#sidenavAccordion">
@@ -81,14 +81,14 @@
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                     data-bs-target="#pagesCollapseAuth" aria-expanded="false"
                                     aria-controls="pagesCollapseAuth">
-                                    Authentication
+                                    Autentificación
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
+                                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                                        <a class="nav-link" href="register.html">Registrarse</a>
+                                        <a class="nav-link" href="password.html">Olvidé mi contraseña</a>
                                     </nav>
                                 </div>
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -119,8 +119,8 @@
 
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    <div class="small">Designed by</div>
+                    Adrián Litardo
                 </div>
             </nav>
         </div>
@@ -130,9 +130,9 @@
 
 
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Dashboard</h1>
+                    <h1 class="mt-4">Conoce acerca del clima de hoy</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Información acerca del clima</li>
                     </ol>
 
 
@@ -140,10 +140,10 @@
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">TIME ZONE</div>
+                                <div class="card-body">ZONA HORARIA</div>
                                 <p id="timezone"></p>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="#">Más detalles</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@
                                 <div class="card-body">LATITUD</div>
                                 <p id="latitude"></p>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="#">Más detalles</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
@@ -163,23 +163,40 @@
                                 <div class="card-body">LONGITUD</div>
                                 <p id="longitude"></p>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="#">Más detalles</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">ELEVATION SOBRE NIVEL MAR(m)</div>
+                                <div class="card-body">ELEVACIÓN SOBRE NIVEL MAR(m)</div>
                                 <p id="elevation"></p>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="#">Más detalles</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+                    <!-- Gráficos -->
+                    <section class="p-4 text-right bg-light">
+                        <h4 id="graficos" class="mb-3">
+                            Gráficos
+                        </h4>
+                        <div class="container">
+                            <div class="row d-flex justify-content-center row-cols-1 row-cols-md-1 g-4 mt-2">
+                                <div class="col">
+                                    <canvas id="plot1"></canvas>
+                                </div>
+                                <div class="col">
+                                    <canvas id="plot2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Gráficos -->
 
                     <!-- GRAFICO MOSTRADO CON CHART.JS-->
                     <div>
@@ -214,28 +231,83 @@
                             }
                         });
                     </script>
+                    <!-- Datos -->
+                    <section class="p-4 text-right bg-light">
+                        <h4 id="datos" class="mb-3">
+                            Datos
+                        </h4>
+                        <div class="container">
 
-                    <!--TABLA INOCAR-->
-                    <h1>Tabla de Mareas - Puertos del Ecuador</h1>
-                    <div id="table-container">
-                        <!-- Aquí se mostrará el resultado de la petición asincrónica -->
-                      </div>
+                            <div class="row justify-content-end row-cols-6 row-cols-md-6 g-3 mt-2">
 
+                                <div class="col">
+                                    <select class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                        <option selected>Ciudades</option>
+                                        <option value="Machala">Machala</option>
+                                        <option value="Guayaquil">Guayaquil</option>
+                                        <option value="Quito">Quito</option>
+                                    </select>
+                                </div>
 
+                            </div>
+                            <div class="row row-cols-1 row-cols-md-1 g-3 mt-2">
+                                <div class="col">
 
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pronóstico del tiempo
+                                                para 5 días con datos cada 3 horas por
+                                                ciudad</h5>
+                                            <table id="forecast" class="table align-middle mb-0 bg-white">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th>Hora</th>
+                                                        <th>Humedad [%]</th>
+                                                        <th>Velocidad del viento [m/s]</th>
+                                                        <th>Precipitación [--]</th>
+                                                        <th>Presión [hPa]</th>
+                                                        <th>Nubosidad [%]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="forecastbody">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Datos -->
+                    <!-- Tabla de mareas -->
+                    <section class="p-4 text-right bg-light">
+                        <h4 class="mb-3">
+                            Mapa de monitoreo de amenaza de inundaciones bajo pronóstico de precipitaciones
+                        </h4>
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-md-1 g-3 mt-2">
+                                <div class="col">
+                                    <div class="card">
+                                        <div id="monitoreo" class="card-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Tabla de mareas -->
                 </div>
             </main>
-            
-
-
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">Copyright &copy; Weather Dashboard</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
+                            <a href="#">Políticas de privacidad</a>
                             &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="#">Términos &amp; Condiciones</a>
                         </div>
                     </div>
                 </div>
